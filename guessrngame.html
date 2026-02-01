@@ -1,0 +1,23 @@
+<h1>Guess Random Number</h4>
+<input id="enterednumber">
+<button onclick="check()">CHECK</button>
+<p id="scored">Score:10</p>
+<p id="result"></p>
+<script>
+    var en=document.getElementById("enterednumber");
+    var para=document.getElementById("result");
+    var score=10;
+    function check(){
+        var rm=Math.floor(Math.random()*10)+1;
+        var usernum=en.value;
+        if(rm==usernum){
+            para.textContent="you are right";
+            alert("congratulations! you guessed the right number");
+        }
+        else{
+            para.textContent="you are wrong";
+            score=score-1;
+            document.getElementById("scored").textContent="Score:"+score;
+        }
+    }
+</script>

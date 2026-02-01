@@ -1,0 +1,19 @@
+<form>
+    <label>Enter number1: </label>
+    <input type="text" id="num1"> 
+    <br><br>
+    <label>Enter number2: </label>
+    <input type="text" id="num2">
+</form>
+<button style="background-color: red;" onclick="add()" id="btn">ADD</button>
+<p id="result"></p>
+<script>
+    function add(){
+    var num1=document.getElementById("num1").value;
+    var num2=document.getElementById("num2").value;
+    var total=Number(num1)+Number(num2);
+    document.getElementById("result").textContent="Result: "+total;  
+    document.getElementById("btn").style.backgroundColor="yellow";
+    }
+
+</script> 
