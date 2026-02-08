@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>
+            STUDENT FORM
+        </title>
+    </head>
+    <BODY>
+        <h1 align="center">STUDENT FORM</h1>
+        <table  border="1" align="center">
+                <tr>
+                    <th>Name</th>
+                    <td><input id="name" type="text" name="name" required></td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td><input id="age" type="number" name="age" required></td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>
+                        <input type="radio" name="gender" value="male">Male
+                        <input type="radio"name="gender" value="female">Female
+                    </td>
+                </tr>
+                <tr>
+                    <th>Course</th>
+                    <td>
+                        <select id="course" name="course">
+                            <option value="Javascript">javascript</option>
+                            <option value="REACT">react</option>
+                            <option value="PYTHON">python</option>
+                            <option value="ML">machine learning</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>EMAIL</th>
+                    <td>
+                        <input type="email" id="email" name="email" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center" ><button id="savedetails" onclick="savechanges()" style="background-color: lightblue;">SAVE</button></td>
+                </tr>
+        </table>
+        <br><br>
+        <table id="table2" border="1" align="center" style="display:none;">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Course</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </table>
+    </BODY>
+    <script>
+    var doc=document.getElementById("savedetails");
+    function savechanges(){
+        var name=document.getElementById("name");
+        var age=document.getElementById("age");
+        var course=document.getElementById("course");
+        var email=document.getElementById("email");
+        var gen=document.querySelector("input[name='gender']:checked");
+        var tab=document.getElementById("table2");
+        var row=document.createElement("tr");
+        var cell1=document.createElement("td");
+        var cell2=document.createElement("td");
+        var cell3=document.createElement("td");
+        var cell4=document.createElement("td");
+        var cell5=document.createElement("td");
+        var cell6=document.createElement("td");
+        cell1.innerHTML=name.value;
+        cell2.innerHTML=age.value;
+        cell3.innerHTML=gen.value;
+        cell4.innerHTML=course.value;
+        cell5.innerHTML=email.value;
+        cell6.innerHTML="<BUTTON onclick='deleteele(event)' style='background-color: red;'>Delete</button>";
+        row.appendChild(cell1);
+        row.appendChild(cell2);
+        row.appendChild(cell3);
+        row.appendChild(cell4);
+        row.appendChild(cell5);
+        row.appendChild(cell6);
+        tab.appendChild(row);
+        tab.style.display = "table";
+    }
+    function deleteele(event){
+        var btn=event.target;
+        var row=btn.parentNode.parentNode;
+        row.remove();
+    }
+    </script>
+
+</html>
